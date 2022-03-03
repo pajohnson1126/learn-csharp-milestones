@@ -11,10 +11,12 @@ public class LearningCurve : MonoBehaviour
 
 
     // defining variables
-    int age = 30;
-    float weight = 150.3;
-    string name = "Paige";
-    bool state = true;
+    private int CurrentAge = 30;
+    public int AddedAge = 1;
+
+    public float pi = 3.14f;
+    public string FirstName = "Paige";
+    public bool IsAuthor = true;
 
     // Start is called before the first frame update
     /// <summary>
@@ -22,8 +24,29 @@ public class LearningCurve : MonoBehaviour
 	/// </summary>
     void Start()
     {
-        
+        //ComputeAge();
+
+ 
+        int CharacterLevel = 32;
+        int NextSkillLevel = GenerateCharacter("Spike", CharacterLevel);
+
+        Debug.Log(NextSkillLevel);
+        Debug.Log(GenerateCharacter("Faye", CharacterLevel));
+
+        //Debug.Log($"A string can have variables like {FirstName} inserted directly!");
     }
+
+    void ComputeAge()
+    {
+        Debug.Log(CurrentAge + AddedAge);
+    }
+
+    public int GenerateCharacter(string name, int level)
+    {
+        //Debug.Log("Character: {0} - Level: {1}", name, level);
+        return level += 5;
+    }
+
 
     // Update is called once per frame
     /// <summary>
