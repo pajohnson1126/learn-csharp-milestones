@@ -16,6 +16,12 @@ public class LearningCurve : MonoBehaviour
     public bool HasSecretIncantation = false;
     public string RareItem = "Relic Stone";
 
+    public Transform CamTransform;
+    public GameObject DirectionLight;
+    public Transform LightTransform;
+
+    Weapon huntingBow = new Weapon("Hunting Bow", 105);
+
 
     // Start is called before the first frame update
     /// <summary>
@@ -27,18 +33,11 @@ public class LearningCurve : MonoBehaviour
         Thievery();
         OpenTreasureChamber();
 
+        DirectionLight = GameObject.Find("Directional Light");
+        LightTransform = DirectionLight.GetComponent<Transform>();
+        Debug.Log(LightTransform.localPosition);
+
     }
-
-    //void ComputeAge()
-    //{
-    //    Debug.Log(CurrentAge + AddedAge);
-    //}
-
-    //public int GenerateCharacter(string name, int level)
-    //{
-    //    //Debug.Log("Character: {0} - Level: {1}", name, level);
-    //    return level += 5;
-    //}
 
     public void OpenTreasureChamber()
     {
