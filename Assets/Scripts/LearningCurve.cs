@@ -10,13 +10,12 @@ public class LearningCurve : MonoBehaviour
      */
 
 
-    // defining variables
-    private int CurrentAge = 30;
-    public int AddedAge = 1;
+    public int CurrentGold = 32;
 
-    public float pi = 3.14f;
-    public string FirstName = "Paige";
-    public bool IsAuthor = true;
+    public bool PureOfHeart = true;
+    public bool HasSecretIncantation = false;
+    public string RareItem = "Relic Stone";
+
 
     // Start is called before the first frame update
     /// <summary>
@@ -24,27 +23,58 @@ public class LearningCurve : MonoBehaviour
 	/// </summary>
     void Start()
     {
-        //ComputeAge();
 
- 
-        int CharacterLevel = 32;
-        int NextSkillLevel = GenerateCharacter("Spike", CharacterLevel);
+        Thievery();
+        OpenTreasureChamber();
 
-        Debug.Log(NextSkillLevel);
-        Debug.Log(GenerateCharacter("Faye", CharacterLevel));
-
-        //Debug.Log($"A string can have variables like {FirstName} inserted directly!");
     }
 
-    void ComputeAge()
+    //void ComputeAge()
+    //{
+    //    Debug.Log(CurrentAge + AddedAge);
+    //}
+
+    //public int GenerateCharacter(string name, int level)
+    //{
+    //    //Debug.Log("Character: {0} - Level: {1}", name, level);
+    //    return level += 5;
+    //}
+
+    public void OpenTreasureChamber()
     {
-        Debug.Log(CurrentAge + AddedAge);
+        if(PureOfHeart && RareItem == "Relic Stone")
+        {
+            if (!HasSecretIncantation)
+            {
+                Debug.Log("You have the spirit, but not the knowledge.");
+            }
+            else
+            {
+                Debug.Log("The treasue is yours, worthy hero!");
+            }
+        }
+        else
+        {
+            Debug.Log("Come back when you have what it takes.");
+        }
+
     }
 
-    public int GenerateCharacter(string name, int level)
+    public void Thievery()
     {
-        //Debug.Log("Character: {0} - Level: {1}", name, level);
-        return level += 5;
+        //public method with no return value
+        if (CurrentGold > 50)
+        {
+            Debug.Log("You're rolling in it!");
+        }
+        else if (CurrentGold < 15)
+        {
+            Debug.Log("Not much there to steal...");
+        }
+        else
+        {
+            Debug.Log("Looks like your purse is in the sweet spot.");
+        }
     }
 
 
